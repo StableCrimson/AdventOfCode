@@ -17,10 +17,8 @@ with open("input.txt", 'r') as file:
 left.sort()
 right.sort()
 
-assert len(left) == len(right)
-
 # Start summing up the differences in the numbers
-for i in range(len(left)):
-    total_dist += abs(left[i] - right[i])
+for a, b in zip(left, right):
+    total_dist += abs(a-b)
 
 print(total_dist)

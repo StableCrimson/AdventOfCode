@@ -32,7 +32,7 @@ def is_report_safe(report) -> bool:
   # Nothing about this report is unsafe :)
   return True
 
-def is_dampened_safe(report: list) -> bool:
+def can_be_dampened(report: list) -> bool:
   subreports = []
 
   # Create a list of all possible dampened reports 
@@ -48,7 +48,7 @@ for report in reports:
     total_safe += 1
 
   # Uh oh! The report is unsafe! Let's try running the dampener
-  elif is_dampened_safe(report):
+  elif can_be_dampened(report):
     total_safe += 1
 
 print(total_safe)

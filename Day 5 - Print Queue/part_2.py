@@ -36,10 +36,13 @@ def is_update_valid(update: list) -> bool:
   for i in range(len(update)):
     rule = rules.get(update[i])
     
+    # All of the pages before the current page
     before = set(update[:i])
 
-    # This update breaks the rules
     if not before.isdisjoint(rule):
+      # This update breaks the rules.
+      # There are pages before the current page
+      # that must come after
       return False
 
   return True
@@ -56,7 +59,7 @@ def correct_update(update: list):
 
       # If there are no members of this update that need to be before `el`, then el
       # must be the next valid element. Remove it from the waitlist and put it in the
-      # next spot of the correct update
+      # next spot of the corrected update
       if rule.isdisjoint(raw_update):
         raw_update.remove(el)
         corrected_update.append(el)
