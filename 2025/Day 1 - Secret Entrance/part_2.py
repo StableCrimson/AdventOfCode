@@ -1,5 +1,3 @@
-import os
-
 with open('input.txt') as file:
   lines = file.readlines()
   turns = []
@@ -23,7 +21,7 @@ for turn in turns:
   num_zeroes += num_rotations
 
   # If turning left (-), the mod operator gives a positive number, so we need to adjust
-  # -68 % 100 = 32 <-- though the math this used in later still lines up, we need this signed value to check for wrap around
+  # -68 % 100 = 32 <-- though the dial math this is used in later still lines up, we need this signed value to check for wrap around
   #  68 % 100 = 68
   if turn < 0 and partial_turn != 0:
     partial_turn -= 100

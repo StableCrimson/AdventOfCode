@@ -1,5 +1,3 @@
-import os
-
 with open('input.txt') as file:
   lines = file.readlines()
   turns = []
