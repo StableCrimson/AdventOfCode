@@ -1,5 +1,9 @@
-with open('input.txt') as file:
-  lines = file.readlines()
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
+with open(script_dir / 'input.txt') as f:
+  lines = f.readlines()
   turns = []
 
   for line in lines:

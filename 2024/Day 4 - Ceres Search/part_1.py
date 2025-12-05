@@ -1,8 +1,12 @@
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
 grid = []
 TARGET = 'XMAS'
 
-with open("input.txt", 'r') as file:
-  lines = file.readlines()
+with open(script_dir / 'input.txt') as f:
+  lines = f.readlines()
   
   for line in lines:
     grid.append(line.strip()) # Trimming off the whitespace

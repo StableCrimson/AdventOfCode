@@ -1,3 +1,7 @@
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
 def contains_pattern(value: int) -> bool:
 
   str_value = str(value)
@@ -8,8 +12,8 @@ def contains_pattern(value: int) -> bool:
   pattern = str_value[:len(str_value) // 2]
   return pattern * 2 == str_value
 
-with open('input.txt') as file:
-  ranges = file.read().split(',')
+with open(script_dir / 'input.txt') as f:
+  ranges = f.read().split(',')
 
 split_ranges = []
 

@@ -1,6 +1,9 @@
 from copy import deepcopy
+from pathlib import Path
 
-with open('input.txt') as f:
+script_dir = Path(__file__).parent
+
+with open(script_dir / 'input.txt') as f:
   data = [[c for c in line.strip()] for line in f.readlines()]
 
 visual = deepcopy(data)

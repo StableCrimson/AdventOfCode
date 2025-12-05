@@ -1,4 +1,8 @@
+from pathlib import Path
 
+script_dir = Path(__file__).parent
+
+  
 '''
 This will contain all of the rules. Formatted X: [Y, Z]
 Where X is a page and Y, Z, etc. are all of the pages
@@ -8,8 +12,8 @@ rules = {}
 updates = []
 middle_sum = 0
 
-with open('input.txt', 'r') as file:
-  contents = file.readlines()
+with open(script_dir / 'input.txt') as f:
+  contents = f.readlines()
 
   for line in contents:
 

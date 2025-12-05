@@ -1,4 +1,8 @@
-with open('test.txt') as f:
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
+with open(script_dir / 'input.txt') as f:
   banks = [line.strip() for line in f.readlines()]
 
 def max_joltage(bank: str, num_digits: int, show_work: bool = False) -> int:

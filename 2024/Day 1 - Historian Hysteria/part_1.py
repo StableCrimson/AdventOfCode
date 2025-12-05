@@ -2,9 +2,8 @@ left = []
 right = []
 total_dist = 0
 
-# Read the input file from Advent of Code
-with open("input.txt", 'r') as file:
-    contents = file.readlines()
+with open("input.txt", 'r') as f:
+    contents = f.readlines()
 
     # For every line "1234    5678" break them up into
     # individual numbers (1234, 5678) and put them in their respective lists

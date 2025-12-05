@@ -1,15 +1,18 @@
+from pathlib import Path
 from typing import Tuple, List
 
-with open("input.txt") as f:
+script_dir = Path(__file__).parent
+
+with open(script_dir / 'input.txt') as f:
   lines = [line.strip() for line in f.readlines()]
 
   ranges = []
 
   for line in lines:
-    if line == "":
+    if line == '':
       break
 
-    start, end = line.split("-")
+    start, end = line.split('-')
     ranges.append((int(start), int(end)))
 
 

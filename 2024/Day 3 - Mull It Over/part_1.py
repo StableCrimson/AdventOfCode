@@ -1,4 +1,8 @@
 import re
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
 
 # This is the pattern we are searching for. You can look at regex101 to test it :)
 EXPRESSION = r"mul\([0-9]{1,3},[0-9]{1,3}\)"
@@ -6,10 +10,10 @@ EXPRESSION = r"mul\([0-9]{1,3},[0-9]{1,3}\)"
 uncorrupted_hits: list[str] = []
 total = 0
 
-with open('input.txt', 'r') as file:
+with open(script_dir / 'input.txt') as f:
 
   # Find all matches of the `mul(X,Y)` pattern in the file
-  matches = re.finditer(EXPRESSION, file.read())
+  matches = re.finditer(EXPRESSION, f.read())
   
   for m in matches:
     uncorrupted_hits.append(m.group())

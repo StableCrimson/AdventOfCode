@@ -1,8 +1,12 @@
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
 reports = []
 total_safe = 0
 
-with open('input.txt', 'r') as file:
-  for line in file.readlines():
+with open(script_dir / 'input.txt') as f:
+  for line in f.readlines():
     # Turn each report into an array of integers
     data_points = [int(i) for i in line.split()]
     reports.append(data_points)

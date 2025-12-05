@@ -1,4 +1,8 @@
-with open('input.txt') as f:
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+
+with open(script_dir / 'input.txt') as f:
   lines = [line.strip() for line in f.readlines()]
 
   recorded_all_ranges = False
