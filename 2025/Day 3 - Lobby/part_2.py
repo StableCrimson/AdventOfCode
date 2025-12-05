@@ -11,9 +11,6 @@ def max_joltage(bank: str, num_digits: int, show_work: bool = False) -> int:
 
   indicator = ' ' * len(bank)
 
-  if len(bank) == needed_digits:
-    return int(bank)
-
   for _ in range(num_digits):
     
     # If the digits we need is equal to the digits left, then just take them all
@@ -28,11 +25,13 @@ def max_joltage(bank: str, num_digits: int, show_work: bool = False) -> int:
 
         indicator = indicator[:window_start] + bank[window_start:]
 
-        # print(f'Needed: {needed_digits}, Available: {available_length}, Start: {window_start}, End: {window_end}')
         print()
         print(indicator)
         print(bank)
         print(window_view)
+        print()
+        print(f'Needed: {needed_digits}, Available: {available_length}, Start: {window_start}, End: {window_end}')
+        print('Digits needed == Digits available, consuming rest of bank')
         print()
 
       break
@@ -53,11 +52,12 @@ def max_joltage(bank: str, num_digits: int, show_work: bool = False) -> int:
 
       indicator = indicator[:digit_index] + biggest_digit + indicator[digit_index+1:]
       
-      # print(f'Needed: {needed_digits}, Available: {available_length}, Start: {window_start}, End: {window_end}')
       print()
       print(indicator)
       print(bank)
       print(window_view)
+      print()
+      print(f'Needed: {needed_digits}, Available: {available_length}, Start: {window_start}, End: {window_end}')
       print()
 
     local_index = digit_index - window_start
@@ -72,7 +72,7 @@ total = 0
 
 for bank in banks:
   joltage = max_joltage(bank, 12, True)
-  print(f'Joltage for bank \'{bank}\': {joltage}\n')
+  print(f'\nJoltage for bank \'{bank}\': {joltage}\n')
   total += joltage
 
 print(total)
